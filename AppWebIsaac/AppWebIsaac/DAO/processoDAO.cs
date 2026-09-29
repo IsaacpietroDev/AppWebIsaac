@@ -26,10 +26,7 @@ public class ProcessoDAO
             """;
 
         cmd.Parameters.AddWithValue("@numero", processo.Numero);
-        cmd.Parameters.AddWithValue("@data",
-            processo.Data.HasValue
-                ? processo.Data.Value.ToDateTime(TimeOnly.MinValue)
-                : DBNull.Value);
+        cmd.Parameters.AddWithValue("@data", processo.Data!.Value.ToDateTime(TimeOnly.MinValue));
         cmd.Parameters.AddWithValue("@interessado", processo.Interessado);
         cmd.Parameters.AddWithValue("@assunto", processo.Assunto);
         cmd.Parameters.AddWithValue("@descricao", processo.Descricao);
