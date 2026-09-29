@@ -1,10 +1,14 @@
 using AppWebIsaac.Components;
+using AppWebIsaac.DAO;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddScoped<Conexao>();
+builder.Services.AddScoped<ProcessoDAO>();
 
 var app = builder.Build();
 
